@@ -1,6 +1,8 @@
 # Description
 Basics directory contains basic applications and dealing with basic elements in QT designer such as buttons, radio buttons, labels, line edit, date, list widget..etc
 
+A GUI screenshot is included in each application folder to demonstrate the application's functionality and features.
+
 **note**: Qt Designer is not used in the first 3 applications and no files for UI, implemented with pure Python Code using PyQt5.
 
 # Apps content
