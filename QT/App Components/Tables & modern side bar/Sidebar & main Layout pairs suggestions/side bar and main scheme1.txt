@@ -1,0 +1,15 @@
+/* Sidebar */
+QFrame#sidebar {
+    background-color: rgb(35, 35, 40);
+    border: none; /* No borders for a clean look */
+    border-top-right-radius: 5px; /* Rounded corners to complement the sidebar */
+    border-bottom-right-radius: 5px; /* Rounded corners to complement the sidebar */
+}
+
+/* Main Area */
+QFrame#mainArea {
+    background-color: rgb(240, 240, 240); /* Light gray background for contrast */
+    border: none;
+    border-radius: 8px; /* Rounded corners to match the sidebar */
+    padding: 10px; /* Padding inside the main area */
+}
