@@ -11,19 +11,23 @@ from PyQt5.QtGui import QPalette, QColor
 class my_app(QMainWindow):
     def __init__(self):
         super(my_app,self).__init__()
+        # init UI from QT designer UI converted file
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        # link function to checkboxes (executes when a checkbox is checked)
         self.ui.Cinema.stateChanged.connect(self.show_state)
         self.ui.Reading.stateChanged.connect(self.show_state)
         self.ui.Running.stateChanged.connect(self.show_state)
 
+        # link function to get_hobby button
         self.ui.get_hobby.clicked.connect(self.get_hobby)
 
     def get_hobby(self):
         # will find all checkboxes inside, use QWidget to find all kind of buttons inside
         checked_boxes_string = ""
         items_hobby = self.ui.group_hobby.findChildren(QtWidgets.QCheckBox)
+        # loop on checkboxes to store the checked checkboxes
         for item_hobby in items_hobby:
             if item_hobby.isChecked():
                 checked_boxes_string += item_hobby.text() + " "
@@ -40,8 +44,11 @@ class my_app(QMainWindow):
         print(cb.isChecked()) # True checked False unchecked
 
 def app_create():
+    # instantiate app
     app = QApplication(sys.argv)
+    # instantiate window
     win = my_app()
+    # display this window in the instantiated app
     win.show()
     sys.exit(app.exec_())
 

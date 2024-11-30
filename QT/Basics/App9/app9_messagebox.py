@@ -8,6 +8,8 @@ from app9_converted_messagebox import Ui_MainWindow
 class my_app(QtWidgets.QMainWindow):
     def __init__(self):
         super(my_app,self).__init__()
+
+        # init UI from QT Designer UI converted file
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
@@ -44,6 +46,7 @@ class my_app(QtWidgets.QMainWindow):
         else:
             print("Ignore is pressed")
 
+    # function to display the message box and define its content and buttons
     def show_message_box2(self):
         msg_result = QMessageBox.question(self, 'Close', 'Press OK to Confirm',
                     QMessageBox.Ok | QMessageBox.Cancel | QMessageBox.Ignore, QMessageBox.Cancel)
@@ -54,6 +57,7 @@ class my_app(QtWidgets.QMainWindow):
             print("Cancellation not confirmed")
 
 
+    # function to be executed when a button is clicked from the message box (Ok, Cancel, ..)
     def clicked(self, i):
         if (i.text() == "OK"):
             QtWidgets.qApp.quit()

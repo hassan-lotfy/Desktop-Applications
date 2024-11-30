@@ -6,10 +6,14 @@ from PyQt5.QtWidgets import QInputDialog, QLineEdit, QMessageBox
 class my_app(QtWidgets.QMainWindow):
     def __init__(self):
         super(my_app,self).__init__()
+        # init UI from QT Designer converted UI file
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        # load items initially using loadStudents function
         self.loadStudents()
+
+        # link functions to buttons
         self.ui.btn_add.clicked.connect(self.add)
         self.ui.btn_edit.clicked.connect(self.edit)
         self.ui.btn_remove.clicked.connect(self.remove)
@@ -19,11 +23,12 @@ class my_app(QtWidgets.QMainWindow):
         self.ui.btn_exit.clicked.connect(self.exit)
 
 
-
+    # function to load fixed items to the list widget
     def loadStudents(self):
         self.ui.listWidget.addItems(["Hassan", 'Amr', 'Basma'])
         #self.ui.listWidget.setCurrentRow(1) # second item is initially selected
 
+    # function to add a new item when add is clicked, taking input using message box
     def add(self):
         current_index = self.ui.listWidget.currentRow()
         text, ok = QInputDialog.getText(self, "New Item", "Item Name")
@@ -32,6 +37,7 @@ class my_app(QtWidgets.QMainWindow):
         else: # if no item is selected, insert at the beginning
             self.ui.listWidget.insertItem(0, text)
 
+    # function to edit item when edit is clicked, using message box
     def edit(self):
         current_index = self.ui.listWidget.currentRow()
         item = self.ui.listWidget.item(current_index)
@@ -47,9 +53,12 @@ class my_app(QtWidgets.QMainWindow):
         else:  # warning message
             QMessageBox.warning(self, "Error", "No item is selected")
 
+    # function to remove selected item from list widget when remove is clicked, with message box to confirm before removing
     def remove(self):
         current_index = self.ui.listWidget.currentRow()
         item = self.ui.listWidget.item(current_index)
+
+        # check if there is item selected, if not display warning "No item is selected"
 
         # currentRow() returns 0 by default if nothing selected, so we check using selectedIndexes
         selected_items = self.ui.listWidget.selectedIndexes()
@@ -61,6 +70,7 @@ class my_app(QtWidgets.QMainWindow):
         else: # warning message
             QMessageBox.warning(self,"Error", "No item is selected")
 
+    # function to move up a selected element when up is clicked, if no element is selected nothing will happen
     def up(self):
         current_index = self.ui.listWidget.currentRow()
         if current_index > 0:
@@ -71,6 +81,8 @@ class my_app(QtWidgets.QMainWindow):
             # select the shifted item to allow user multiple ups without re-selecting the item
             self.ui.listWidget.setCurrentItem(item)
 
+
+    # function to move a selected element down when down is clicked, if no element is selected nothing will happen
     def down(self):
         current_index = self.ui.listWidget.currentRow()
         # check if index is at most right before the last element
@@ -82,10 +94,12 @@ class my_app(QtWidgets.QMainWindow):
             # select the shifted item to allow user multiple ups without re-selecting the item
             self.ui.listWidget.setCurrentItem(item)
 
+    # function to sort elements in the list widget alphabetically when sort is clicked
     def sort(self):
         # sorting by initials
         self.ui.listWidget.sortItems()
 
+    # function to exit the app when exit is clicked, with message box to confirm
     def exit(self):
         question = QMessageBox.question(self, "Exit", "Do You want to Exit?",
                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)

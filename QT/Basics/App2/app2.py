@@ -54,7 +54,7 @@ def window():
     win.show()
     # store exit code
     exit_code = app.exec_()
-    # pass it to OS
+    # pass it to OS when app terminates
     sys.exit(exit_code)
 
 window()

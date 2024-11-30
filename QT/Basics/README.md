@@ -5,6 +5,15 @@ A GUI screenshot is included in each application folder to demonstrate the appli
 
 **note**: Qt Designer is not used in the first 3 applications and no files for UI, implemented with pure Python Code using PyQt5.
 
+# Dependencies
+
+- PyQt5: command ```pip install PyQt5```
+- QT Designer
+
+**Note**: Qt Designer UI file is converted to Python file using command:
+
+``` pyuic5 fileName.ui -o fileName.py```
+
 # Apps content
 
 ## App1
