@@ -1,0 +1,37 @@
+<settings>
+    <editor>
+        <theme>Darcula</theme>
+        <font>
+            <name>JetBrains Mono</name>
+            <size>14</size>
+        </font>
+        <lineNumbers>true</lineNumbers>
+        <softWraps>false</softWraps>
+    </editor>
+
+    <keymap>
+        <shortcutRun>
+            <name>Run</name>
+            <shortcut>Ctrl+Shift+F10</shortcut>
+        </shortcutRun>
+        <shortcutFind>
+            <name>Find</name>
+            <shortcut>Ctrl+F</shortcut>
+        </shortcutFind>
+    </keymap>
+
+    <projectSettings>
+        <name>MyProject</name>
+        <language>Python</language>
+        <pythonInterpreter>/usr/bin/python3</pythonInterpreter>
+    </projectSettings>
+
+    <plugins>
+        <pluginMarkdown>
+            <enabled>true</enabled>
+        </pluginMarkdown>
+        <pluginGit>
+            <enabled>true</enabled>
+        </pluginGit>
+    </plugins>
+</settings>
