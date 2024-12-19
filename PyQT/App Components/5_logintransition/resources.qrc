@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>hide-left-arrow.svg</file>
+    <file>user.svg</file>
+    <file>view-right-arrow.svg</file>
+    <file>cart.svg</file>
+    <file>home.svg</file>
+    <file>users.svg</file>
+  </qresource>
+  <qresource prefix="Images"/>
+</RCC>
